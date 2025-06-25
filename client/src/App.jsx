@@ -13,7 +13,7 @@ function App() {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem('token') || '');
   const [showAuth, setShowAuth] = useState(false);
-  const [authMode, setAuthMode] = useState('login');
+  const [authMode] = useState('login');
   const navigate = useNavigate();
 
   const handleLogin = (user, token) => {

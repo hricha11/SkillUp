@@ -25,7 +25,7 @@ export const updateUser = async (req, res) => {
 export const searchAlumni = async (req, res) => {
   const { skill, company, location } = req.query;
   let query = { role: 'alumni' };
-  if (skill) query.skills = skill;
+  if (skill) query.skills = { $in: [skill] };
   if (company) query.company = company;
   if (location) query.location = location;
   try {
