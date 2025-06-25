@@ -1,18 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 
-export default function Navbar({ onLoginClick, onSignupClick }) {
+export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <span className="navbar-title">skillup</span>
+        <Link to="/" className="navbar-title">skillup</Link>
       </div>
       <div className="navbar-links">
-        <a href="#">Alumni</a>
-        <a href="#">Student</a>
+        <Link to="/dashboard">Alumni</Link>
+        <Link to="/dashboard">Student</Link>
         <a href="#">Contact</a>
-        <button className="navbar-login" onClick={onLoginClick}>Login</button>
-        <button className="navbar-signup" onClick={onSignupClick}>Sign up</button>
+        <Link to="/login" className="navbar-login">Login</Link>
+        <Link to="/signup" className="navbar-signup">Sign up</Link>
       </div>
     </nav>
   );

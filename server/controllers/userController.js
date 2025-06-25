@@ -34,4 +34,18 @@ export const searchAlumni = async (req, res) => {
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
+};
+
+export const searchStudents = async (req, res) => {
+  const { skill, company, location } = req.query;
+  let query = { role: 'student' };
+  if (skill) query.skills = skill;
+  if (company) query.company = company;
+  if (location) query.location = location;
+  try {
+    const students = await User.find(query).select('-password');
+    res.json(students);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
 }; 
